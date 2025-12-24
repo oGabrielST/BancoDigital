@@ -18,7 +18,6 @@ import java.math.BigDecimal;
 @EqualsAndHashCode(of = "id")
 
 public class User {
-    public static UserService userService;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;

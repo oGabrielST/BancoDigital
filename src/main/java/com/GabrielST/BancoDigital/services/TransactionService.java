@@ -13,17 +13,19 @@ import java.time.LocalDateTime;
 @Service
 public class TransactionService {
 
-    @Autowired
-    private UserService userService;
+    private final UserService userService;
+   private final TransactionRepository repository;
 
-    @Autowired
-    private TransactionRepository repository;
+   public TransactionService(UserService userService, TransactionRepository repository) {
+       this.userService = userService;
+       this.repository = repository;
+   }
 
     @Transactional
     public Transaction createTransaction(TransactionDTO transaction) throws Exception {
 
-        User sender = User.userService.findUserById(transaction.senderId());
-        User receiver = User.userService.findUserById(transaction.receiverId());
+        User sender = this.userService.findUserById(transaction.senderId());
+        User receiver = this.userService.findUserById(transaction.receiverId());
 
 
         userService.validateTransaction(sender, transaction.value());
