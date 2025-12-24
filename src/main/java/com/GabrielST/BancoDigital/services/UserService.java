@@ -44,4 +44,8 @@ public class UserService {
     public List<User> getAllUsers() {
         return this.repository.findAll();
     }
+
+    public void validateTransaction(User sender, BigDecimal value) {
+
+    }
 }

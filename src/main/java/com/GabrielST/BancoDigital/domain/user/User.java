@@ -1,5 +1,6 @@
 package com.GabrielST.BancoDigital.domain.user;
 
+import com.GabrielST.BancoDigital.services.UserService;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -17,6 +18,7 @@ import java.math.BigDecimal;
 @EqualsAndHashCode(of = "id")
 
 public class User {
+    public static UserService userService;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
