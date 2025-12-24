@@ -41,6 +41,7 @@ public class UserService {
         this.repository.save(user);
     }
 
-
-
+    public List<User> getAllUsers() {
+        return this.repository.findAll();
+    }
 }
